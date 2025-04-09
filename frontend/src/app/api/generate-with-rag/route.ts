@@ -1,0 +1,30 @@
+import { NextRequest, NextResponse } from 'next/server';
+
+export async function POST(request: NextRequest) {
+  try {
+    const body = await request.json();
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+    
+    const response = await fetch(`${apiUrl}/generate-with-rag`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+      cache: 'no-store',
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erreur API: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error('Erreur lors de la génération avec RAG:', error);
+    return NextResponse.json(
+      { error: 'Erreur lors de la génération avec RAG' },
+      { status: 500 }
+    );
+  }
+}
