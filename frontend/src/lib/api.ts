@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Configuration de l'URL de l'API
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8050';
 
 // Types pour les requêtes et réponses
 interface ProductInfo {
