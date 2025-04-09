@@ -185,7 +185,7 @@ export default function GeneratePage() {
       };
 
       // Appel à l'API backend
-      const response = await fetch("http://localhost:8000/analyze-competitors", {
+      const response = await fetch("http://localhost:8045/analyze-competitors", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -223,7 +223,7 @@ export default function GeneratePage() {
       };
 
       // Appel à l'API backend
-      const response = await fetch("http://localhost:8000/get-seo-guide", {
+      const response = await fetch("http://localhost:8045/get-seo-guide", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
